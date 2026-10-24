@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>struuud</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="toolbar">
+        <div class="toolbar-row">
+          <strong class="brand">🎤 struuud</strong>
+          <button id="recordBtn" class="primary">● Record</button>
+          <button id="stopRecordBtn" disabled>■ Stop</button>
+          <span id="recordStatus" class="status">idle</span>
+          <span class="spacer"></span>
+          <button id="playBtn">▶ Play</button>
+          <button id="hushBtn">■ Hush</button>
+          <button id="downloadMidiBtn" disabled>⬇ .mid</button>
+          <label class="inline">
+            Model
+            <input id="modelInput" list="modelDatalist" placeholder="llama3.2" />
+            <datalist id="modelDatalist"></datalist>
+          </label>
+        </div>
+        <form id="generateForm" class="toolbar-row generate-row">
+          <input id="generateInput" type="text" placeholder="✨ ask for a new layer — add a beat, add atmospheric strings, make it busier..." />
+          <button type="submit" id="generateBtn" class="primary">Generate</button>
+          <span id="generateStatus" class="status"></span>
+        </form>
+        <details class="cleanup-details">
+          <summary>Cleanup settings</summary>
+          <div class="row controls">
+            <label>BPM <input id="bpm" type="number" min="40" max="240" value="120" /></label>
+            <label>Grid
+              <select id="grid">
+                <option value="2">8th notes</option>
+                <option value="4" selected>16th notes</option>
+              </select>
+            </label>
+            <label>Scale
+              <select id="scale">
+                <option value="chromatic">Chromatic (off)</option>
+                <option value="major" selected>Major</option>
+                <option value="minor">Minor</option>
+                <option value="majorPentatonic">Major Pentatonic</option>
+                <option value="minorPentatonic">Minor Pentatonic</option>
+              </select>
+            </label>
+            <label>Root
+              <select id="root">
+                <option value="0" selected>C</option>
+                <option value="1">C#</option>
+                <option value="2">D</option>
+                <option value="3">D#</option>
+                <option value="4">E</option>
+                <option value="5">F</option>
+                <option value="6">F#</option>
+                <option value="7">G</option>
+                <option value="8">G#</option>
+                <option value="9">A</option>
+                <option value="10">A#</option>
+                <option value="11">B</option>
+              </select>
+            </label>
+            <label>Min amplitude <input id="minAmp" type="range" min="0" max="1" step="0.05" value="0.3" /></label>
+            <label>Sound <input id="sound" type="text" value="triangle" /></label>
+            <button id="applyBtn" disabled>Re-apply to last recording</button>
+          </div>
+        </details>
+      </header>
+
+      <div id="editorRoot" class="editor-fullpage"></div>
+    </div>
+
+    <form id="iterateForm" class="iterate-form" hidden>
+      <input id="iterateInput" type="text" placeholder="vary this line, or type an instruction..." />
+      <button type="submit">✨</button>
+    </form>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

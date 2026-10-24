@@ -1,0 +1,229 @@
+:root {
+  color-scheme: light dark;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --bg: #0f1115;
+  --card: #1a1d24;
+  --text: #e8eaed;
+  --muted: #9aa0ac;
+  --accent: #4cc9f0;
+  --accent-strong: #3fb8de;
+  --border: #2a2d36;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.toolbar {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 1rem;
+  flex: 0 0 auto;
+}
+
+.toolbar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  margin-right: 0.5rem;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.inline input {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.35rem 0.5rem;
+  width: 9rem;
+}
+
+.cleanup-details {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.cleanup-details summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.controls {
+  margin-top: 0.6rem;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.controls input,
+.controls select {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.35rem 0.5rem;
+}
+
+.controls input[type='number'] {
+  width: 4.5rem;
+}
+
+.controls input[type='text'] {
+  width: 7rem;
+}
+
+button {
+  background: var(--border);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: var(--accent);
+  color: #06161a;
+  border-color: var(--accent-strong);
+  font-weight: 600;
+}
+
+button.primary:hover:not(:disabled) {
+  background: var(--accent-strong);
+}
+
+.status {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.editor-fullpage {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.strudel-editor {
+  height: 100%;
+  overflow: auto;
+  font-family: 'JetBrains Mono', Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+}
+
+.strudel-editor .cm-editor,
+.strudel-editor .cm-scroller {
+  height: 100%;
+}
+
+.generate-row {
+  margin-top: 0.5rem;
+}
+
+.generate-row #generateInput {
+  flex: 1;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.9rem;
+}
+
+.generate-row #generateInput:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.iterate-form {
+  position: fixed;
+  z-index: 50;
+  display: flex;
+  gap: 0.3rem;
+  background: var(--card);
+  border: 1px solid var(--accent-strong);
+  border-radius: 999px;
+  padding: 0.3rem 0.4rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.iterate-form[hidden] {
+  display: none;
+}
+
+.iterate-form input {
+  background: transparent;
+  color: var(--text);
+  border: none;
+  outline: none;
+  font-size: 0.8rem;
+  width: 22rem;
+  max-width: 50vw;
+  padding: 0.2rem 0.4rem;
+}
+
+.iterate-form button {
+  background: var(--accent);
+  color: #06161a;
+  border: none;
+  border-radius: 999px;
+  width: 1.8rem;
+  height: 1.8rem;
+  padding: 0;
+  font-size: 0.85rem;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
